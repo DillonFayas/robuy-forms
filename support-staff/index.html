@@ -254,6 +254,7 @@
   });
 
   form.addEventListener('submit', async (e) => {
+    console.log("Submitting");
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
     if (!checkboxesValid()) return;
@@ -268,6 +269,8 @@
       const val = data.get(field);
       if (val) payload.append(entryId, val);
     }
+
+    console.log(payload);
 
     try {
       await fetch(
