@@ -269,10 +269,6 @@
       if (val) payload.append(entryId, val);
     }
 
-    for (const [key, val] of payload.entries()) {
-      console.log(key, val);
-    }
-
     try {
       await fetch(
               `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`,
@@ -285,7 +281,6 @@
     form.style.display = 'none';
     successEl.style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    console.log("Done");
   });
 </script>
 

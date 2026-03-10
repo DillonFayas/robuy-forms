@@ -39,12 +39,12 @@
         <div class="form-section-title">About You (optional)</div>
         <div class="form-grid">
           <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Doe" autocomplete="name">
+            <label for="robloxName">Roblox Username</label>
+            <input type="text" id="robloxName" name="robloxName" placeholder="MeapHamster" autocomplete="name">
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email">
+            <label for="discordName">Discord Username</label>
+            <input type="email" id="discordName" name="discordName" placeholder="Meap" autocomplete="email">
           </div>
         </div>
       </div>
@@ -56,10 +56,27 @@
             <label for="product">Product or Service <span class="req">*</span></label>
             <select id="product" name="product" required>
               <option value="" disabled selected>Select a product…</option>
-              <option value="Tutorials">Tutorials</option>
-              <option value="Product A">Product A</option>
-              <option value="Product B">Product B</option>
-              <option value="Website / General">Website / General</option>
+              <option value="Advanced Fire Hose">Advanced Fire Hose</option>
+              <option value="Advanced Fire Hose Expansion Pack">Advanced Fire Hose Expansion Pack</option>
+              <option value="ATM System">ATM System</option>
+              <option value="Automatic Fire Generator">Automatic Fire Generator</option>
+              <option value="Auto-Eject Ports">Auto-Eject Ports</option>
+              <option value="Bearcat Animation Running Boards">Bearcat Animation Running Boards</option>
+              <option value="Body/Dash Cameras">Body/Dash Cameras</option>
+              <option value="Bollard Barriers">Bollard Barriers</option>
+              <option value="Booking System">Booking System</option>
+              <option value="Emergency Services Radio">Emergency Services Radio</option>
+              <option value="Fire Hose">Fire Hose</option>
+              <option value="Fire Pole">Fire Pole</option>
+              <option value="Handcuffs">Handcuffs</option>
+              <option value="Standard Running Boards">Standard Running Boards</option>
+              <option value="Team Changer">Team Changer</option>
+              <option value="Trunk System">Trunk System</option>
+              <option value="Vehicle Exhaust Extractor">Vehicle Exhaust Extractor</option>
+              <option value="tutorials.poncake.dev">Tutorials (tutorials.poncake.dev)</option>
+              <option value="forms.poncake.dev">Forms (forms.poncake.dev)</option>
+              <option value="poncake.dev">Shop (poncake.dev)</option>
+              <option value="Roblox Shop">Roblox Shop</option>
               <option value="Other">Other</option>
             </select>
           </div>
@@ -87,7 +104,7 @@
             <textarea id="improve" name="improve" placeholder="Any suggestions, pain points, or things that didn't work as expected…"></textarea>
           </div>
           <div class="form-group full">
-            <label>Would you recommend us?</label>
+            <label>Would you recommend Poncake's Server to a friend?</label>
             <div class="radio-group">
               <div class="radio-option">
                 <input type="radio" id="rec-yes" name="recommend" value="Yes, definitely">
@@ -118,27 +135,16 @@
 </div>
 
 <script>
-// ================================================================
-//  GOOGLE FORMS CONFIG — Product Feedback
-//
-//  1. Open your Google Form. Copy the Form ID from the URL:
-//     docs.google.com/forms/d/e/[FORM_ID]/viewform
-//     Paste it into GOOGLE_FORM_ID below.
-//
-//  2. View the form page source (right-click → View Page Source)
-//     and search for "entry." to find each field's entry ID.
-//     Map them in ENTRY_MAP below.
-// ================================================================
-const GOOGLE_FORM_ID = "YOUR_FORM_ID_HERE";
+const GOOGLE_FORM_ID = "1FAIpQLSe2s0kD6URB4z6yo0JD5RjhTa4P0GGTzSgRIWuotLUUb2TvOA";
 
 const ENTRY_MAP = {
-  name:      "entry.XXXXXXXXX",
-  email:     "entry.XXXXXXXXX",
-  product:   "entry.XXXXXXXXX",
-  rating:    "entry.XXXXXXXXX",
-  liked:     "entry.XXXXXXXXX",
-  improve:   "entry.XXXXXXXXX",
-  recommend: "entry.XXXXXXXXX",
+  robloxName:    "entry.1966493127",
+  discordName:   "entry.1064993629",
+  product:       "entry.824026973",
+  rating:        "entry.486537125",
+  liked:         "entry.302555213",
+  improve:       "entry.74216070",
+  recommend:     "entry.925461624",
 };
 // ================================================================
 
