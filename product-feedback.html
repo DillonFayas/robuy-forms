@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Feedback — poncake.dev</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a href="../">← Forms</a>
+    <strong>Product Feedback</strong>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-wrap">
+
+    <div class="page-header">
+      <h1>Product Feedback</h1>
+      <p>Your honest feedback shapes what we build next. Anonymous submissions are welcome.</p>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="success-state" id="success">
+      <div class="success-icon">✓</div>
+      <h2>Feedback Sent!</h2>
+      <p>Thanks for taking the time to share your thoughts. We genuinely appreciate it.</p>
+      <a href="../" class="button"><span class="btn-text">← Back to Forms</span></a>
+    </div>
+
+    <!-- FORM -->
+    <form id="main-form" novalidate>
+
+      <div class="form-section">
+        <div class="form-section-title">About You (optional)</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-title">Your Feedback</div>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label for="product">Product or Service <span class="req">*</span></label>
+            <select id="product" name="product" required>
+              <option value="" disabled selected>Select a product…</option>
+              <option value="Tutorials">Tutorials</option>
+              <option value="Product A">Product A</option>
+              <option value="Product B">Product B</option>
+              <option value="Website / General">Website / General</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Overall Rating <span class="req">*</span></label>
+            <div class="star-rating" role="group" aria-label="Rating">
+              <input type="radio" id="s5" name="rating" value="5" required>
+              <label for="s5" title="5 stars">★</label>
+              <input type="radio" id="s4" name="rating" value="4">
+              <label for="s4" title="4 stars">★</label>
+              <input type="radio" id="s3" name="rating" value="3">
+              <label for="s3" title="3 stars">★</label>
+              <input type="radio" id="s2" name="rating" value="2">
+              <label for="s2" title="2 stars">★</label>
+              <input type="radio" id="s1" name="rating" value="1">
+              <label for="s1" title="1 star">★</label>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label for="liked">What did you like? <span class="req">*</span></label>
+            <textarea id="liked" name="liked" placeholder="Tell us what worked well for you…" required></textarea>
+          </div>
+          <div class="form-group full">
+            <label for="improve">What could be improved?</label>
+            <textarea id="improve" name="improve" placeholder="Any suggestions, pain points, or things that didn't work as expected…"></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Would you recommend us?</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="rec-yes" name="recommend" value="Yes, definitely">
+                <label for="rec-yes">👍 Yes, definitely</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="rec-maybe" name="recommend" value="Maybe">
+                <label for="rec-maybe">🤔 Maybe</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="rec-no" name="recommend" value="Not right now">
+                <label for="rec-no">👎 Not right now</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section submit-row">
+        <span class="form-note">Responses may be used anonymously to improve our products and services.</span>
+        <button type="submit" class="button" id="submit-btn">
+          <span class="btn-text">Send Feedback →</span>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<script>
+// ================================================================
+//  GOOGLE FORMS CONFIG — Product Feedback
+//
+//  1. Open your Google Form. Copy the Form ID from the URL:
+//     docs.google.com/forms/d/e/[FORM_ID]/viewform
+//     Paste it into GOOGLE_FORM_ID below.
+//
+//  2. View the form page source (right-click → View Page Source)
+//     and search for "entry." to find each field's entry ID.
+//     Map them in ENTRY_MAP below.
+// ================================================================
+const GOOGLE_FORM_ID = "YOUR_FORM_ID_HERE";
+
+const ENTRY_MAP = {
+  name:      "entry.XXXXXXXXX",
+  email:     "entry.XXXXXXXXX",
+  product:   "entry.XXXXXXXXX",
+  rating:    "entry.XXXXXXXXX",
+  liked:     "entry.XXXXXXXXX",
+  improve:   "entry.XXXXXXXXX",
+  recommend: "entry.XXXXXXXXX",
+};
+// ================================================================
+
+const form      = document.getElementById('main-form');
+const submitBtn = document.getElementById('submit-btn');
+const successEl = document.getElementById('success');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+
+  submitBtn.disabled = true;
+  submitBtn.querySelector('.btn-text').textContent = 'Sending…';
+
+  const data    = new FormData(form);
+  const payload = new FormData();
+
+  for (const [field, entryId] of Object.entries(ENTRY_MAP)) {
+    const val = data.get(field);
+    if (val) payload.append(entryId, val);
+  }
+
+  try {
+    await fetch(
+      `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`,
+      { method: 'POST', body: payload, mode: 'no-cors' }
+    );
+  } catch (err) {
+    console.warn('[Google Forms]', err);
+  }
+
+  form.style.display = 'none';
+  successEl.style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>

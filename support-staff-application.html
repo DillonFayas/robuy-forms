@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Support Staff Application — poncake.dev</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a href="../">← Forms</a>
+    <strong>Support Staff Application</strong>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-wrap">
+
+    <div class="page-header">
+      <h1>Support Staff Application</h1>
+      <p>Fill out the form below. We'll review your application and reach out within 3–5 business days.</p>
+    </div>
+
+    <!-- SUCCESS STATE (shown after submit) -->
+    <div class="success-state" id="success">
+      <div class="success-icon">✓</div>
+      <h2>Application Received!</h2>
+      <p>Thanks for applying. We'll review your application and be in touch shortly.</p>
+      <a href="../" class="button"><span class="btn-text">← Back to Forms</span></a>
+    </div>
+
+    <!-- FORM -->
+    <form id="main-form" novalidate>
+
+      <!-- CONTACT -->
+      <div class="form-section">
+        <div class="form-section-title">Contact</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="discord">Discord User <span class="req">*</span></label>
+            <input type="text" id="discord" name="discord" placeholder="Meap" required>
+          </div>
+          <div class="form-group full">
+            <label for="roblox">Roblox Profile Link <span class="req">*</span></label>
+            <input type="text" id="roblox" name="roblox" placeholder="https://www.roblox.com/users/…" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- VERIFICATION -->
+      <div class="form-section">
+        <div class="form-section-title">Verification</div>
+
+        <label style="display:block;">I verify that my account is verified with Robux <span class="req">*</span></label>
+        <label class="checkbox-option">
+          <input type="checkbox" name="verifyRobuy" value="Oh yeah" required id="verifyRobuy">
+          <span style="margin-bottom:16px;" class="checkbox-box">✓</span>
+          <span class="checkbox-label">&nbspOh yeah</span>
+        </label>
+
+        <label style="display:block;">I verify that I am a member of the Roblox group <span class="req">*</span></label>
+        <label class="checkbox-option">
+          <input style="margin-bottom:16px;" type="checkbox" name="verifyGroup" value="Oh yeah" required id="verifyGroup">
+          <span class="checkbox-box">✓</span>
+          <span class="checkbox-label">&nbspYuh</span>
+        </label>
+      </div>
+
+      <!-- ABOUT YOU -->
+      <div class="form-section">
+        <div class="form-section-title">About You</div>
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label for="interest">Why are you interested in this position? <span class="req">*</span></label>
+            <p class="field-hint">1-3 sentences explaining why you want to join the Product Support Team. Don't BS me. Be straight up.</p>
+            <textarea id="interest" name="interest" placeholder="I want to join because…" required></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label for="csExperience">What kind of experience do you have in customer service? <span class="req">*</span></label>
+            <p class="field-hint">List prior positions involving customer service, or any other relevant experiences. Note that I do not care if you are a Roblox Lego game moderator. If you have no relevant experience, just say so.</p>
+            <textarea id="csExperience" name="csExperience" placeholder="I previously worked at…" required></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label for="languages">Are you multilingual? List all languages that you are fluent in. <span class="req">*</span></label>
+            <textarea id="languages" name="languages" placeholder="English, Spanish, …" required style="min-height: 80px;"></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label>How old are you? <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="age1" name="age" value="&lt;13" required>
+                <label for="age1">&lt;13</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="age2" name="age" value="13 - 15">
+                <label for="age2">13 – 15</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="age3" name="age" value="16+">
+                <label for="age3">16+</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- KNOWLEDGE & SKILLS -->
+      <div class="form-section">
+        <div class="form-section-title">Knowledge &amp; Skills</div>
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label>How familiar are you with the products in Poncake's Server? <span class="req">*</span></label>
+            <div style="display: flex; justify-content: space-between;">
+              <p class="field-hint">What is Poncake's Server?</p>
+              <p style="text-align: right" class="field-hint">I have a college degree in Poncake's Server</p>
+            </div>
+            <div class="scale-group" id="familiarityGroup">
+              <div class="radio-option"><input type="radio" id="fam1"  name="familiarity" value="1"  required><label for="fam1">1</label></div>
+              <div class="radio-option"><input type="radio" id="fam2"  name="familiarity" value="2"><label for="fam2">2</label></div>
+              <div class="radio-option"><input type="radio" id="fam3"  name="familiarity" value="3"><label for="fam3">3</label></div>
+              <div class="radio-option"><input type="radio" id="fam4"  name="familiarity" value="4"><label for="fam4">4</label></div>
+              <div class="radio-option"><input type="radio" id="fam5"  name="familiarity" value="5"><label for="fam5">5</label></div>
+              <div class="radio-option"><input type="radio" id="fam6"  name="familiarity" value="6"><label for="fam6">6</label></div>
+              <div class="radio-option"><input type="radio" id="fam7"  name="familiarity" value="7"><label for="fam7">7</label></div>
+              <div class="radio-option"><input type="radio" id="fam8"  name="familiarity" value="8"><label for="fam8">8</label></div>
+              <div class="radio-option"><input type="radio" id="fam9"  name="familiarity" value="9"><label for="fam9">9</label></div>
+              <div class="radio-option"><input type="radio" id="fam10" name="familiarity" value="10"><label for="fam10">10</label></div>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Do you have any programming experience? <span class="req">*</span></label>
+            <p class="field-hint">You will not be required to have any experience in programming, but we'd still like to know!</p>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="progYes" name="programming" value="Yes" required>
+                <label for="progYes">Yes</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="progNo" name="programming" value="No">
+                <label for="progNo">No</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- AVAILABILITY -->
+      <div class="form-section">
+        <div class="form-section-title">Availability</div>
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label for="availability">What does your availability look like? <span class="req">*</span></label>
+            <textarea id="availability" name="availability" placeholder="Ex: 1+ hours daily, unavailable on Tuesdays" required style="min-height: 80px;"></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label for="timezone">What is your time zone? <span class="req">*</span></label>
+            <input type="text" id="timezone" name="timezone" placeholder="EST, PST, GMT+2…" required>
+          </div>
+
+          <div class="form-group full">
+            <label for="pay">How much would you like to be paid? <span class="req">*</span></label>
+            <p class="field-hint">Note that you do not get to decide your pay. We will base it on how much you contribute.</p>
+            <input type="text" id="pay" name="pay" placeholder="Your answer…" required>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- QUESTIONS -->
+      <div class="form-section">
+        <div class="form-section-title">Anything Else?</div>
+        <div class="form-group">
+          <label for="questions">Do you have any questions or concerns?</label>
+          <textarea id="questions" name="questions" placeholder="Ask away…"></textarea>
+        </div>
+      </div>
+
+      <div class="form-section submit-row">
+        <span class="form-note">Your information is kept private and used only to evaluate your application.</span>
+        <button type="submit" class="button" id="submit-btn">
+          <span class="btn-text">Submit Application →</span>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<script>
+  const GOOGLE_FORM_ID = "1FAIpQLScCwO_N7IcHF9fnoxxRc-VWzuKPGTazo-E-VRFD6M6HWzUGaQ";
+
+  const ENTRY_MAP = {
+    email:          "entry.1966493127",
+    discord:        "entry.1064993629",
+    roblox:         "entry.824026973",
+    verifyRobuy:    "entry.486537125",
+    verifyGroup:    "entry.1006967599",
+    interest:       "entry.191130381",
+    csExperience:   "entry.302555213",
+    languages:      "entry.74216070",
+    familiarity:    "entry.767288266",
+    programming:    "entry.1708249515",
+    age:            "entry.1122900818",
+    availability:   "entry.992227522",
+    timezone:       "entry.661324177",
+    pay:            "entry.1011141307",
+    questions:      "entry.925461624",
+  };
+  // ================================================================
+
+  const form      = document.getElementById('main-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const successEl = document.getElementById('success');
+
+  // Custom validation for required checkboxes (not natively supported well)
+  function checkboxesValid() {
+    const robuy = document.getElementById('verifyRobuy');
+    const group = document.getElementById('verifyGroup');
+    if (!robuy.checked) {
+      robuy.closest('.checkbox-option').style.borderColor = '#ef4444';
+      robuy.closest('.checkbox-option').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+    if (!group.checked) {
+      group.closest('.checkbox-option').style.borderColor = '#ef4444';
+      group.closest('.checkbox-option').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+    return true;
+  }
+
+  // Reset error highlight on check
+  ['verifyRobuy','verifyGroup'].forEach(id => {
+    document.getElementById(id).addEventListener('change', function() {
+      this.closest('.checkbox-option').style.borderColor = '';
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (!checkboxesValid()) return;
+
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-text').textContent = 'Submitting…';
+
+    const data    = new FormData(form);
+    const payload = new FormData();
+
+    for (const [field, entryId] of Object.entries(ENTRY_MAP)) {
+      const val = data.get(field);
+      if (val) payload.append(entryId, val);
+    }
+
+    try {
+      await fetch(
+              `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`,
+              { method: 'POST', body: payload, mode: 'no-cors' }
+      );
+    } catch (err) {
+      console.warn('[Google Forms]', err);
+    }
+
+    form.style.display = 'none';
+    successEl.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

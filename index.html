@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forms — poncake.dev</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <strong>Poncake Forms</strong>
+    <div class="nav-links">
+      <a href="https://tutorials.poncake.dev" target="_blank">Tutorials</a>
+      <a href="https://poncake.dev" target="_blank">Store</a>
+      <a href="https://discord.gg/7nt8MUVpcD" target="_blank">Discord</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Forms</h1>
+    <p>Select a form below to get started.</p>
+  </div>
+
+  <div class="forms-grid" id="forms-grid">
+    <!-- Cards rendered by JS from FORMS config below -->
+  </div>
+</div>
+
+<script>
+// ================================================================
+//  FORMS CONFIG
+//  To add a new form: copy an object below, paste it inside the
+//  array, fill in your values, and create the matching HTML file
+//  in the /forms/ directory.
+// ================================================================
+const FORMS = [
+  {
+    title:       "Support Staff Application",
+    description: "Apply to join our support team. We review all applications within 3–5 business days.",
+    icon:        "🧑‍💼",
+    tags:        ["Application", "Hiring"],
+    href:        "forms/support-staff-application.html"
+  },
+  {
+    title:       "Product Feedback",
+    description: "Share your thoughts on our products. Your feedback shapes what we build next.",
+    icon:        "💬",
+    tags:        ["Feedback", "Product"],
+    href:        "forms/product-feedback.html"
+  }
+  // ✅ ADD MORE FORMS HERE — follow the pattern above
+  // {
+  //   title:       "Bug Report",
+  //   description: "Found something broken? Let us know and we'll fix it fast.",
+  //   icon:        "🐛",
+  //   tags:        ["Support", "Dev"],
+  //   href:        "forms/bug-report.html"
+  // },
+];
+// ================================================================
+
+const grid = document.getElementById('forms-grid');
+
+FORMS.forEach(form => {
+  const a = document.createElement('a');
+  a.href = form.href;
+  a.className = 'form-card';
+  a.innerHTML = `
+    <div class="form-card-icon">${form.icon}</div>
+    <div class="form-card-tags">${form.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    <h2>${form.title}</h2>
+    <p>${form.description}</p>
+    <div class="form-card-cta">Open form →</div>
+  `;
+  grid.appendChild(a);
+});
+</script>
+
+</body>
+</html>
